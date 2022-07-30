@@ -27,11 +27,13 @@ log = "0.4.14"
 publicsuffix = "2.1.1"
 serde = { version = "1.0.136", features = [ "derive" ] }
 serde_json = "1.0.79"
-time = "0.3.7"
+# wasm support isn't released yet as of version v0.3.11. See: https://github.com/time-rs/time/pull/491
+time = { git = "https://github.com/time-rs/time", rev = "7be38dc28c56eb5d4e1c250720803ecbaea4f283", default-features = false, features = ["std", "parsing", "formatting", "macros"] }
 url = "2.2.2"
 
 indexmap = { version = "1.6.2", optional = true }
 
 [dependencies.cookie]
+git = "https://github.com/jeanmertz/cookie-rs"
+rev = "48ba15ad56ff8a9e5d65e89d0e3d09abbe2bda37"
 features = ["percent-encode"]
-version = "0.16.0"
